@@ -25,22 +25,21 @@ mutation {
 mutation {
   createUser(
     data: {
-      username: "test"
+      nickname: "test"
       email: "test@test.com"
     }
   ) {
     id
-    username
+    nickname
   }
 }
 mutation {
   createUserBook(
     data: {
       rating: 3.0
-      status: READ
       user: {
         connect: {
-          username: "test"
+          nickname: "test"
         }
       }
       book: {
@@ -53,7 +52,7 @@ mutation {
   ) {
     id
     user {
-      username
+      nickname
     }
     book {
       title
