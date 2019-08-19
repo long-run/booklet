@@ -1,11 +1,12 @@
 import { GraphQLServer } from 'graphql-yoga';
 import { prisma } from './generated/prisma-client'
-import resolvers from './resolvers';
-import {getUser} from "./authorizer";
+import { resolvers } from './resolvers';
+import { getUser } from './authorizer';
 
 const server = new GraphQLServer({
   typeDefs: './src/schema.graphql',
   resolvers,
+  // @ts-ignore
   context: ({ request }) => {
     const tokenWithBearer = request.headers.authorization || '';
     const token = tokenWithBearer.split(' ')[1];
@@ -16,7 +17,8 @@ const server = new GraphQLServer({
       prisma, // the generated prisma client if you are using it
     };
   },
-});
+} as any);
+
 server.start({
     cors: {
       origin: '*',

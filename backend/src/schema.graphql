@@ -1,9 +1,70 @@
+scalar Date
+
 type User {
   id: ID!
-  username: String!
+  email: String!
+  nickname: String!
+  createdAt: Date!
+  updatedAt: Date!
+  loginedAt: Date
+  books: [UserBook!]
+  posts: [Post!]
+  following: [User!]
+  followed: [User!]
+  photo: String
+  bio: String
+  social: Social
 }
 
-scalar Date
+type Social {
+  id: ID!
+  type: String!
+  user: User!
+  externalId: String!
+  createdAt: Date!
+  updatedAt: Date!
+}
+
+type Book {
+  id: ID!
+  title: String!
+  isbn: String!
+  author: String
+  cover: String
+  publisher: String
+  description: String
+  createdAt: Date!
+  updatedAt: Date!
+}
+
+type UserBook {
+  id: ID!
+  user: User!
+  book: Book!
+  posts: [Post!]
+  rating: Float
+  readAt: Date!
+  createdAt: Date!
+  updatedAt: Date!
+}
+
+type Post {
+  id: ID!
+  user: User!
+  userBook: UserBook!
+  likes: Int!
+  backgroundTheme: String
+  content: String
+  status: FeedStatus
+  createdAt: Date!
+  updatedAt: Date!
+}
+
+enum FeedStatus {
+  CURRENT_READING,
+  READ,
+  WANT_TO_READ
+}
 
 type BookSearchResult {
   title: String!

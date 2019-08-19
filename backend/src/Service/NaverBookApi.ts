@@ -35,4 +35,4 @@ class NaverBookApi {
   }
 }
 
-export default new NaverBookApi(getConfig('NaverApi'));
+export const naverBookApi = new NaverBookApi(getConfig('NaverApi'));
