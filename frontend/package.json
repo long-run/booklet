@@ -41,7 +41,7 @@
     "connected-next-router": "^1.0.1",
     "graphql": "^14.1.1",
     "immer-reducer": "^0.7.0",
-    "next": "^8.1.0",
+    "next": "^11.1.0",
     "next-redux-saga": "^4.0.2",
     "next-redux-wrapper": "^3.0.0-alpha.2",
     "react": "^16.8.3",
